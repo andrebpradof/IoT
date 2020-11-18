@@ -13,8 +13,7 @@ Mateus Fernandes Doimo - Nº USP: 10691971</br>
 <p>O projeto da disciplina deve envolver uma solução funcional de aplicação integrada (software e hardware) no contexto de IoT.<br>Micro-Serviço: Entrega do código, executando em um serviço de broker simulado.</p>
 
 <p>O micro-Serviço foi desenvolvido em Node.js na versão 12.9.1 com npm 6.10.2</p>
-<p>Para executar esse código é nescessário que Node.js esteja instalado na máquina. Para mais infromações acesse <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
-
+<p>Para executar este código é nescessário que o Node.js esteja instalado na máquina. Para mais informações acesse <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
 
 #### Instalar módulos:
 `$ npm install`
@@ -22,7 +21,7 @@ Mateus Fernandes Doimo - Nº USP: 10691971</br>
 #### Executar broker:
 `$ node broker`
 
-#### Executar micro-Serviço:
+#### Executar micro-serviço:
 `$ node api`
 
 #### Executar testes:
