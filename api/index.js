@@ -1,7 +1,7 @@
 var mqtt = require('mqtt') // Faz o requerimento do modulo MQTT
 const admin = require('firebase-admin') // Faz requerimento do modulo da base de dados Firebase
 
-var client = mqtt.connect('http://localhost:1885')  //Cria a conexão com o broker MQTT
+var client = mqtt.connect('http://localhost:1883')  //Cria a conexão com o broker MQTT
 
 let serviceAccount = require('../iot-2020-firebase.json');  //Adiciona o arquivo de configuração do Firebase
 admin.initializeApp({
