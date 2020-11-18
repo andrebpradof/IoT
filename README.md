@@ -4,7 +4,7 @@
 André Baconcelo Prado Furlanetti - Nº USP: 10748305 </br>
 Diego da Silva Parra - Nº USP: 10716550</br>
 Mateus Fernandes Doimo - Nº USP: 10691971</br>
-Mateus Fernandes Doimo - Nº USP: 10691971</br>
+Tainá Andrello Piai - Nº USP: 9266664</br>
 
 <p>Prof. Assoc. Júlio Cezar Estrella</p>
 <hr>
