@@ -92,8 +92,8 @@ client.on('message', function(topic, message) {
             ar.registro = obj['23'];
             
             // Insere no banco
-            util.atualiza_registro_bd(obj,result.name,data);
-            util.insere_registro_bd(obj,result.name,data);
+            util.atualiza_registro_bd(obj,result.name,data);     // Atualiza os dados no registro fixo que é utilizado para armazenar os últimos valores enviados pelos dispositivos
+            util.insere_registro_bd(obj,result.name,data);  // Insere os dados em um novo registro no banco
         }
         else if(result.name == 'sensores'){ // Se for um sensor
 
@@ -107,8 +107,8 @@ client.on('message', function(topic, message) {
                         'data':   util.convert_data(obj['s'])
                     };
                     // Salva no banco
-                    util.atualiza_registro_bd(obj,result.name,data);
-                    util.insere_registro_bd(obj,result.name,data);
+                    util.atualiza_registro_bd(obj,result.name,data);     // Atualiza os dados no registro fixo que é utilizado para armazenar os últimos valores enviados pelos dispositivos
+                    util.insere_registro_bd(obj,result.name,data);  // Insere os dados em um novo registro no banco
                     
                     // Verifica se a temperatura está fora do intervalo desejado e se o ar está desligado
                     // Considerou-se que o ar tbm esquenta a sala
@@ -129,9 +129,6 @@ client.on('message', function(topic, message) {
                         ar.on_off = false;
                         util.atualiza_ar(ar);
                     }
-                    else{
-                        console.log("Caiu em nada");
-                    }
                     break;
                 case 'umid': // Sensor de Umidade
                     console.log("Sensor: Umid - Valor: "+obj['umid']);
@@ -141,32 +138,32 @@ client.on('message', function(topic, message) {
                         'valor': obj['umid'],
                         'data':   util.convert_data(obj['s'])
                     };
-                    util.atualiza_registro_bd(obj,result.name,data);
-                    util.insere_registro_bd(obj,result.name,data);
+                    util.atualiza_registro_bd(obj,result.name,data);    // Atualiza os dados no registro fixo que é utilizado para armazenar os últimos valores enviados pelos dispositivos
+                    util.insere_registro_bd(obj,result.name,data);  // Insere os dados em um novo registro no banco
                     break;
-                case 'luz': // Sensor de 
+                case 'luz': // Sensor de luminosidade
                    
                     var status_luz;
                     if(obj['21'] === 1){status_luz = true} else{status_luz = false}
                     console.log("Sensor: Luz - Valor: "+status_luz);
-                    var data = {
+                    var data = {    // Estrutura para salvar no banco
                         'id': obj['0'],
                         'tipo': 'luminosidade',
                         'valor': status_luz,
                         'data': util.convert_data(obj['s'])
                     };
-                    util.atualiza_registro_bd(obj,result.name,data);
-                    util.insere_registro_bd(obj,result.name,data);
+                    util.atualiza_registro_bd(obj,result.name,data);    // Atualiza os dados no registro fixo que é utilizado para armazenar os últimos valores enviados pelos dispositivos
+                    util.insere_registro_bd(obj,result.name,data);  // Insere os dados em um novo registro no banco
 
                     if(status_luz == false && ar.on_off == true && ar.status_sala == false){
-                        //desliga o ar
+                        // Se a luz estiver apagada, o ar estiver ligado e a sala estiver vazia: desliga o ar
                         client.publish(time+'/aircon/'+ar.id,'{"0":1,"21":0,"23":'+ar.registro+'}');
                         console.log("Desliga o ar - apagou a luz");
                         ar.on_off = false;
                         util.atualiza_ar(ar);
                     }
                     else if(status_luz == true && ar.on_off == false){
-                        //liga o ar
+                        // Se a luz estiver acessa e o ar estiver desligado: liga o ar
                         client.publish(time+'/aircon/'+ar.id,'{"0":1,"21":1,"23":'+ar.registro+'}');
                         console.log("Liga o ar - acendeu a luz");
                         ar.on_off = true;
@@ -174,15 +171,15 @@ client.on('message', function(topic, message) {
                     }
 
                     break;
-                case 'movimento':
+                case 'movimento':   // Sensor de movimento
                     console.log("Sensor: Movimento");
-                    var data = {
+                    var data = {    // Estrutura para salvar no banco
                         'id': obj['0'],
                         'tipo': 'movimento',
                         'data':   util.convert_data(obj['s'])
                     };
-                    util.atualiza_registro_bd(obj,result.name,data);
-                    util.insere_registro_bd(obj,result.name,data);    
+                    util.atualiza_registro_bd(obj,result.name,data);    // Atualiza os dados no registro fixo que é utilizado para armazenar os últimos valores enviados pelos dispositivos
+                    util.insere_registro_bd(obj,result.name,data);  // // Insere os dados em um novo registro no banco
                     break;
             }
                 
