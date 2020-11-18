@@ -1,14 +1,8 @@
 var mqtt = require('mqtt') // Faz o requerimento do modulo MQTT
-const admin = require('firebase-admin') // Faz requerimento do modulo da base de dados Firebase
+let db = require('./db'); // COnfigurações do banco
 
 var client = mqtt.connect('http://localhost:1883')  //Cria a conexão com o broker MQTT
 
-let serviceAccount = require('../iot-2020-firebase.json');  //Adiciona o arquivo de configuração do Firebase
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-});
-
-let db = admin.firestore(); //Cria a conexão com o Cloud Firestore do Firebase
 
 // Valores padrões para o ar condicionado
 var ar = { 

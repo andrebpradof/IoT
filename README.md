@@ -10,7 +10,7 @@ Mateus Fernandes Doimo - Nº USP: 10691971</br>
 <hr>
 
 <h3>Descrição:</h3>
-<p>O projeto da disciplina deve envolver uma solução funcional de aplicação integrada (software e hardware) no contexto de IoT.<br>Micro-Serviço: Entrega do código, executando em um serviço de broker simulado.</p>
+<p>O projeto da disciplina deve envolver uma solução funcional de aplicação integrada (software e hardware) no contexto de IoT. Entrega do código, executando em um serviço de broker simulado.</p>
 
 <p>O micro-Serviço foi desenvolvido em Node.js na versão 12.9.1 com npm 6.10.2</p>
 <p>Para executar este código é nescessário que o Node.js esteja instalado na máquina. Para mais informações acesse <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
