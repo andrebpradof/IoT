@@ -1,8 +1,9 @@
+require("dotenv").config();
 var mqtt = require('mqtt') // Faz o requerimento do modulo MQTT
-var client = mqtt.connect('http://localhost:1883')  //Cria a conexão com o broker MQTT
+var client = mqtt.connect(process.env.HOST_MQTT)  //Cria a conexão com o broker MQTT
 
 client.on('connect', function() {// Conexão do cliente com o broker
-    client.subscribe('2/aircon/24', function(err) {
+    client.subscribe('2/response', function(err) {
         if (!err) {
             // client.publish('2/temp/20', '{"s":"17/12/2020 22:22:40","0":21,"temp":40}')
             // client.publish('2/temp/20', '{"s":"14/11/2020 23:47:00","0":22,"temp":21}');

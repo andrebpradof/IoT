@@ -1,4 +1,4 @@
-let db = require('./db'); // Configurações do banco
+let db = require('../db'); // Configurações do banco
 const admin = require('firebase-admin');
 
 const sala = 2;
@@ -46,7 +46,7 @@ function string_data(){
 // Atualiza o registro na base de dados
 function atualiza_registro_bd(obj,tipo,data){
     let doc_sensor = db.collection('Salas').doc(sala+'/'+tipo+'/'+obj['0']);
-    let set = doc_sensor.set(data);
+    let set = doc_sensor.update(data);
 }
 
 // Insere a leitura na base de dados
