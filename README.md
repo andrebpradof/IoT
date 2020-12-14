@@ -1,5 +1,5 @@
 # IoT - Micro-Serviço
-<h3>Checkpoint 02 - SSC0952 - Internet das Coisas (2020)</h3>
+<h3>SSC0952 - Internet das Coisas (2020)</h3>
 
 André Baconcelo Prado Furlanetti - Nº USP: 10748305 </br>
 Diego da Silva Parra - Nº USP: 10716550</br>
@@ -17,12 +17,7 @@ Tainá Andrello Piai - Nº USP: 9266664</br>
 
 #### Instalar módulos:
 `$ npm install`
-
-#### Executar broker:
-`$ node broker`
-
-#### Executar micro-serviço:
-`$ node api`
-
-#### Executar testes:
-`$ node api/teste`
+#### Executar micro-serviço cliente MQTT:
+`$ node api/mqtt/index`
+#### Executar API:
+`$ node api/server/server`
