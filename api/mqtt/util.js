@@ -27,11 +27,11 @@ function convert_data_to_time(dateString){
     return date.getTime();
 }
 
-// Pega a data atuel e retorna em forma de string
+// Pega a data atual e retorna em forma de string
 function string_data(){
     var data = new Date();
 
-    // Guarda cada pedaço em uma variável
+    // Guarda cada parte em uma variável
     var dia     = data.getDate();           // 1-31
     var mes     = data.getMonth();          // 0-11 (zero=janeiro)
     var ano4    = data.getFullYear();       // 4 dígitos
@@ -96,5 +96,13 @@ function set_ar(query){
         console.log('Erro ao buscar documento', err);
     });
 }
+function isJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
 
-module.exports = { convert_data, convert_data_to_time, string_data, atualiza_registro_bd, insere_registro_bd, atualiza_ar, set_ar};
+    return true;
+}
+module.exports = { isJson, convert_data, convert_data_to_time, string_data, atualiza_registro_bd, insere_registro_bd, atualiza_ar, set_ar};

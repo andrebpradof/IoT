@@ -11,6 +11,7 @@ module.exports = {
             if (!doc.exists) {
                 res.status(500).json({error: 'Registros não encontrados!'});
             } else {
+                console.log('>> Registro encontrado');
                 return res.json(doc.data());
             }
         })
